@@ -360,7 +360,7 @@ function Home() {
     const noFilters = !hasRegion && !hasPrice && !hasArea && !hasBeds;
     if (noFilters) return true;
 
-    if (hasRegion && filters.regions.includes(l.city?.region_id)) return true;
+    if (hasRegion && filters.regions.map(String).includes(String(l.city?.region_id))) return true;
     if (hasPrice) {
       const price = Number(l.price);
       const min = filters.priceMin !== "" ? Number(filters.priceMin) : -Infinity;
